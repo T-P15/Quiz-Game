@@ -50,6 +50,9 @@ function displayingscores (){
     
     var showMe = JSON.parse(localStorage.getItem('highscores'));
     console.log(showMe)
+    if(showMe === null){
+        console.log("no scores")
+    }else{
     showMe.forEach(element => {
         console.log(element[0])
         console.log(element[1])
@@ -59,7 +62,7 @@ function displayingscores (){
         s.textContent= "name: " +name1+ " score: " +score1+ "!"
         scoreDiv.appendChild(s)
 
-    });
+    })};
     
 }
 
