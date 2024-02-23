@@ -47,8 +47,19 @@ displayingscores()
 
 
 function displayingscores (){
+    
     var showMe = JSON.parse(localStorage.getItem('highscores'));
     console.log(showMe)
+    showMe.forEach(element => {
+        console.log(element[0])
+        console.log(element[1])
+        const name1 = JSON.stringify(element[0])
+        const score1 = JSON.stringify(element[1])
+       const s = document.createElement("p")
+        s.textContent= "name: " +name1+ " score: " +score1+ "!"
+        scoreDiv.appendChild(s)
+
+    });
     
 }
 
