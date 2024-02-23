@@ -50,7 +50,7 @@ function displayingscores (){
     
     var showMe = JSON.parse(localStorage.getItem('highscores'));
     console.log(showMe)
-    if(showMe === null){
+    if(!showMe){
         console.log("no scores")
     }else{
     showMe.forEach(element => {
