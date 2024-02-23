@@ -1,0 +1,13 @@
+
+#time-left{
+    display: none;
+}
+
+#display-container{
+    display: none;
+}
+
+#start-button{
+    display: inline-block;
+}
+
