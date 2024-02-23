@@ -41,6 +41,16 @@ const nameSubmitter = document.getElementById("final-form");
 var currentQuestionIndex = 0;
 var score =0;
 const aea = [answerElement1, answerElement2, answerElement3, answerElement4];
+var highscoreArray= [] 
+const scoreDiv = document.getElementById("past-scores");
+displayingscores()
+
+
+function displayingscores (){
+    var showMe = JSON.parse(localStorage.getItem('highscores'));
+    console.log(showMe)
+    
+}
 
 function startQuiz(){
     currentQuestionIndex = 0;
@@ -140,7 +150,7 @@ function showScore(){
       submitButton.setAttribute('value', 'Submit');
     
       // Adding an event listener for form submission
-      highscoreform.addEventListener('submit', handleSubmit);
+      highscoreform.addEventListener('submit', handlescoreSubmit);
     
       // Appending input and button to the form
       highscoreform.appendChild(myLabel)
@@ -187,7 +197,16 @@ function goNext(){
 }
 
 
-function handleSubmit(event) {
+function handlescoreSubmit(event) {
     event.preventDefault(); 
-    console.log("Form submitted!");
+    var initials = document.getElementById('nameInput').value 
+    var addedScore = score 
+    var resultArray = [initials, addedScore]
+    highscoreArray.push(resultArray)
+    var tryAgain = document.createElement("h1");
+    tryAgain.textContent = ("thankyou " + initials+ " score saved refresh to tryagain");
+    quizContainer.appendChild(tryAgain);
+    localStorage.setItem('highscores', JSON.stringify(highscoreArray));
+
+    console.log("Form submitted!", highscoreArray);
   }
