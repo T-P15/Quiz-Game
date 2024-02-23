@@ -108,8 +108,47 @@ function showScore(){
     clearHouse(quizContainer);
     timeEle.style.display = "none";
     const finalScore = document.createElement("h1");
-    finalScore.textContent = ("Congratulations you got " + score+ "!");
+    finalScore.textContent = ("Congratulations you got " + score+ "! save your score below");
     quizContainer.appendChild(finalScore);
+    
+      var highscoreform = document.createElement('form');
+    
+
+      highscoreform.setAttribute('id', 'highscoreform');
+      highscoreform.setAttribute('action', '#'); // '#' represents the current page
+
+        // Creating label element
+  var myLabel = document.createElement('label');
+
+  // Setting label attributes
+  myLabel.setAttribute('for', 'nameInput');
+  myLabel.textContent = 'Initials: '; // Label text
+    
+      var nameInput = document.createElement('input');
+    
+      // Setting input attributes
+      nameInput.setAttribute('type', 'text');
+      nameInput.setAttribute('id', 'nameInput');
+      nameInput.setAttribute('name', 'nameInput');
+      nameInput.setAttribute('placeholder', 'Type initials...');
+    
+      // Creating submit button
+      var submitButton = document.createElement('input');
+    
+      // Setting button attributes
+      submitButton.setAttribute('type', 'submit');
+      submitButton.setAttribute('value', 'Submit');
+    
+      // Adding an event listener for form submission
+      highscoreform.addEventListener('submit', handleSubmit);
+    
+      // Appending input and button to the form
+      highscoreform.appendChild(myLabel)
+      highscoreform.appendChild(nameInput);
+      highscoreform.appendChild(submitButton);
+    
+      // Appending form to the body
+      quizContainer.appendChild(highscoreform);
     
 }
 
@@ -146,3 +185,9 @@ function goNext(){
         showScore();        
 }
 }
+
+
+function handleSubmit(event) {
+    event.preventDefault(); 
+    console.log("Form submitted!");
+  }
